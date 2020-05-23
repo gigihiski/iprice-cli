@@ -1,11 +1,11 @@
 <?php
-require_once("FontStyleNormal.php");
+require_once("FontStyleNormalCase.php");
 require_once("FontStyleUpperCase.php");
 require_once("FontStyleAlternateUpperLowerCase.php");
 
 abstract class FontStyleOption
 {
-    const NORMAL = "NORMAL";
+    const NORMALCASE = "NORMALCASE";
     const UPPERCASE = "UPPERCASE";
     const ALTERNATEUPPERLOWERCASE = "ALTERNATEUPPERLOWERCASE";
 }
@@ -21,8 +21,8 @@ final class FontStyleFactory
             case FontStyleOption::ALTERNATEUPPERLOWERCASE: {
                     return new FontStyleAlternateUpperLowerCase($input);
                 }
-            case FontStyleOption::NORMAL: {
-                    return new FontStyleNormal($input);
+            case FontStyleOption::NORMALCASE: {
+                    return new FontStyleNormalCase($input);
                 }
             default:
                 throw new FontStyleException(FontStyleError::FONT_STYLE_ERROR_OPTION_NOT_FOUND);

@@ -1,7 +1,7 @@
 <?php
 require_once("FontStyle.php");
 
-class FontStyleNormal extends FontStyle
+class FontStyleNormalCase extends FontStyle
 {
     public function formattedString(): string
     {
