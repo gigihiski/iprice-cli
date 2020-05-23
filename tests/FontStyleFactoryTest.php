@@ -37,17 +37,24 @@ final class FontStyleFactoryTest extends TestCase
         $this->expectException(FontStyleException::class);
         $this->expectExceptionMessage(FontStyleError::FONT_STYLE_ERROR_EMPTY_INPUT);
 
-        $this->inputStringMock->expects($this->once())
-            ->method(GENERATE_TO_STRING_METHOD)
+        $this->inputStringMock->method(GENERATE_TO_STRING_METHOD)
             ->willReturn("");
 
         FontStyleFactory::create(FontStyleOption::UPPERCASE, $this->inputStringMock);
     }
 
+    public function testShouldReturnSuccessWhenFactoryCreateNormalCaseClass(): void
+    {
+        $this->inputStringMock->method(GENERATE_TO_STRING_METHOD)
+            ->willReturn(INPUT_STRING);
+
+        $normalCase = FontStyleFactory::create(FontStyleOption::NORMALCASE, $this->inputStringMock);
+        $this->assertInstanceOf(FontStyleNormalCase::class, $normalCase);
+    }
+
     public function testShouldReturnSuccessWhenFactoryCreateUpperCaseClass(): void
     {
-        $this->inputStringMock->expects($this->once())
-            ->method(GENERATE_TO_STRING_METHOD)
+        $this->inputStringMock->method(GENERATE_TO_STRING_METHOD)
             ->willReturn(INPUT_STRING);
 
         $upperCase = FontStyleFactory::create(FontStyleOption::UPPERCASE, $this->inputStringMock);
@@ -56,8 +63,7 @@ final class FontStyleFactoryTest extends TestCase
 
     public function testShouldReturnSuccessWhenFactoryCreateAlternateUpperLowerCaseClass(): void
     {
-        $this->inputStringMock->expects($this->once())
-            ->method(GENERATE_TO_STRING_METHOD)
+        $this->inputStringMock->method(GENERATE_TO_STRING_METHOD)
             ->willReturn(INPUT_STRING);
 
         $alternateUpperAndLowerCase = FontStyleFactory::create(FontStyleOption::ALTERNATEUPPERLOWERCASE, $this->inputStringMock);
