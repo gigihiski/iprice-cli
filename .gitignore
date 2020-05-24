@@ -1,2 +1,5 @@
 # composer vendor directory
 vendor/
+
+# generated csv file
+*.csv
