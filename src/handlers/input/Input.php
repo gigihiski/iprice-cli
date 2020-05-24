@@ -25,16 +25,16 @@ abstract class Input implements InputInterface
     private function validate(array $arguments)
     {
         if (is_null($arguments) || empty($arguments)) {
-            throw new InputException(InputError::INPUT_ERROR_EMPTY_ARGUMENT);
+            throw new InputException(InputError::EMPTY_ARGUMENT);
         }
         if (!is_array($arguments)) {
-            throw new InputException(InputError::INPUT_ERROR_ARGUMENT_NOT_ARRAY);
+            throw new InputException(InputError::ARGUMENT_NOT_ARRAY);
         }
         if (count($arguments) <= 1) {
-            throw new InputException(InputError::INPUT_ERROR_EMPTY_ARGUMENT);
+            throw new InputException(InputError::EMPTY_ARGUMENT);
         }
         if (count($arguments) == 2 && empty(trim($arguments[1]))) {
-            throw new InputException(InputError::INPUT_ERROR_EMPTY_ARGUMENT);
+            throw new InputException(InputError::EMPTY_ARGUMENT);
         }
     }
 

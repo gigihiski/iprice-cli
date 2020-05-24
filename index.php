@@ -1,18 +1,23 @@
 <?php
 require_once("src/handlers/input/InputString.php");
-require_once("src/entities/fontStyle/FontStyleFactory.php");
+require_once("src/handlers/TextCapitalization/TextCapitalizationFactory.php");
+require_once("src/handlers/fileCreation/FileCreationCSV.php");
+require_once("src/handlers/printFile/PrintFile.php");
 
 try {
     $input = new InputString($argv);
 
-    $upperCase = FontStyleFactory::create(FontStyleOption::UPPERCASE, $input);
+    $upperCase = TextCapitalizationFactory::create(TextCapitalizationOption::UPPERCASE, $input);
     printf("%s\n", $upperCase->formattedString());
 
-    $alternateUpperLowerCase = FontStyleFactory::create(FontStyleOption::ALTERNATEUPPERLOWERCASE, $input);
+    $alternateUpperLowerCase = TextCapitalizationFactory::create(TextCapitalizationOption::ALTERNATEUPPERLOWERCASE, $input);
     printf("%s\n", $alternateUpperLowerCase->formattedString());
 
-    $normalCase = FontStyleFactory::create(FontStyleOption::NORMALCASE, $input);
-    printf("%s\n", $normalCase->formattedString());
+    $normalCase = TextCapitalizationFactory::create(TextCapitalizationOption::ALTERNATEUPPERLOWERCASE, $input);
+    $csvFile = new FileCreationCSV("csv_file.csv", $normalCase);
+    $print = new PrintFile($csvFile);
+    $print->setSuccessMessage("CSV created!");
+    printf("%s\n", $print->createFile());
 } catch (Exception $e) {
     print($e->getMessage());
 }
