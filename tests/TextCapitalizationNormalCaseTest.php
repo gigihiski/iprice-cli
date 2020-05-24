@@ -1,9 +1,7 @@
 <?php
+require_once("src/utils/Constant.php");
 
 use PHPUnit\Framework\TestCase;
-
-const INPUT_STRING = "hello world";
-const GENERATE_TO_STRING_METHOD = "generateToString";
 
 final class TextCapitalizationNormalCaseTest extends TestCase
 {
@@ -19,7 +17,7 @@ final class TextCapitalizationNormalCaseTest extends TestCase
         $this->expectException(TextCapitalizationException::class);
         $this->expectExceptionMessage(TextCapitalizationError::EMPTY_INPUT);
 
-        $this->inputStringMock ->method(GENERATE_TO_STRING_METHOD)
+        $this->inputStringMock->method(GENERATE_TO_STRING_METHOD)
             ->willReturn("");
 
         $alternateUpperLowerCase = new TextCapitalizationNormalCase($this->inputStringMock);

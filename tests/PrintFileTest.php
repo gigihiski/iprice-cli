@@ -1,10 +1,7 @@
 <?php
+require_once("src/utils/Constant.php");
 
 use PHPUnit\Framework\TestCase;
-
-const WRITE_METHOD = "write";
-
-const SUCCESS_MESSAGE = "CSV created!";
 
 final class PrintFileTest extends TestCase
 {

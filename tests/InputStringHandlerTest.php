@@ -1,8 +1,7 @@
 <?php
+require_once("src/utils/Constant.php");
 
 use PHPUnit\Framework\TestCase;
-
-const INDEX_FILE = "index.php";
 
 final class InputStringHandlerTest extends TestCase
 {

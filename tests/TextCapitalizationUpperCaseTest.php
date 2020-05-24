@@ -1,9 +1,7 @@
 <?php
+require_once("src/utils/Constant.php");
 
 use PHPUnit\Framework\TestCase;
-
-const INPUT_STRING = "hello world";
-const GENERATE_TO_STRING_METHOD = "generateToString";
 
 final class TextCapitalizationUpperCaseTest extends TestCase
 {
