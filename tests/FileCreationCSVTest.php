@@ -30,7 +30,8 @@ final class FileCreationCSVTest extends TestCase
         $this->expectException(FileCreationException::class);
         $this->expectExceptionMessage(FileCreationError::EMPTY_FILEPATH);
 
-        new FileCreationCSV("", $this->textCapitalization);
+        $csvFile = new FileCreationCSV("", $this->textCapitalization);
+        $this->assertNull($csvFile);
     }
 
     public function testShouldReturnFailWhenFilePathIsInvalid(): void
@@ -38,7 +39,8 @@ final class FileCreationCSVTest extends TestCase
         $this->expectException(FileCreationException::class);
         $this->expectExceptionMessage(FileCreationError::DIRECTORY_NOT_FOUND);
 
-        new FileCreationCSV(FILE_WITH_INVALID_PATH, $this->textCapitalization);
+        $csvFile = new FileCreationCSV(FILE_WITH_INVALID_PATH, $this->textCapitalization);
+        $this->assertNull($csvFile);
     }
 
     public function testShouldReturnFailWhenFileExtensionIsNotCsv(): void
