@@ -1,6 +1,6 @@
 <?php
 require_once("src/handlers/input/InputString.php");
-require_once("src/handlers/TextCapitalization/TextCapitalizationFactory.php");
+require_once("src/handlers/textCapitalization/TextCapitalizationFactory.php");
 require_once("src/handlers/fileCreation/FileCreationCSV.php");
 require_once("src/handlers/printFile/PrintFile.php");
 
