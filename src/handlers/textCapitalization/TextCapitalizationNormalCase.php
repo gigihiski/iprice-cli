@@ -1,7 +1,7 @@
 <?php
-require_once("FontStyle.php");
+require_once("TextCapitalization.php");
 
-class FontStyleNormalCase extends FontStyle
+class TextCapitalizationNormalCase extends TextCapitalization
 {
     public function formattedString(): string
     {
