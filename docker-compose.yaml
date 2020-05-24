@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  iprice_cli:
+    container_name: iprice_cli-container
+    build: ./
+    networks:
+      - fullstack
+      
+networks:
+  fullstack:
+    driver: bridge
