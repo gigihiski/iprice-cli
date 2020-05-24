@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use PHPUnit\Framework\TestCase;
 
 const INDEX_FILE = "index.php";
@@ -13,7 +11,7 @@ final class InputStringHandlerTest extends TestCase
     public function testShouldReturnErrorWhenArgumentIsAnEmptyArray(): void
     {
         $this->expectException(InputException::class);
-        $this->expectExceptionMessage(InputError::INPUT_ERROR_EMPTY_ARGUMENT);
+        $this->expectExceptionMessage(InputError::EMPTY_ARGUMENT);
 
         $input = new InputString(array());
         $input->generateToString();
@@ -22,7 +20,7 @@ final class InputStringHandlerTest extends TestCase
     public function testShouldReturnErrorWhenInputOnlyIndexFileInArgument(): void
     {
         $this->expectException(InputException::class);
-        $this->expectExceptionMessage(InputError::INPUT_ERROR_EMPTY_ARGUMENT);
+        $this->expectExceptionMessage(InputError::EMPTY_ARGUMENT);
 
         $this->assertCount(1, $this->argv);
 
@@ -33,7 +31,7 @@ final class InputStringHandlerTest extends TestCase
     public function testShouldReturnErrorWhenArgumentHasEmptyString(): void
     {
         $this->expectException(InputException::class);
-        $this->expectExceptionMessage(InputError::INPUT_ERROR_EMPTY_ARGUMENT);
+        $this->expectExceptionMessage(InputError::EMPTY_ARGUMENT);
 
         $this->assertCount(1, $this->argv);
         array_push($this->argv, " ");

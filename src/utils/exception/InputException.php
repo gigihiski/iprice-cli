@@ -2,8 +2,8 @@
 
 abstract class InputError
 {
-    const INPUT_ERROR_EMPTY_ARGUMENT = "argument is empty";
-    const INPUT_ERROR_ARGUMENT_NOT_ARRAY = "argument is not an array";
+    const EMPTY_ARGUMENT = "argument is empty";
+    const ARGUMENT_NOT_ARRAY = "argument is not an array";
 }
 
 class InputException extends Exception
