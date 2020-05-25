@@ -13,7 +13,7 @@ try {
     $alternateUpperLowerCase = TextCapitalizationFactory::create(TextCapitalizationOption::ALTERNATEUPPERLOWERCASE, $input);
     printf("%s\n", $alternateUpperLowerCase->formattedString());
 
-    $normalCase = TextCapitalizationFactory::create(TextCapitalizationOption::ALTERNATEUPPERLOWERCASE, $input);
+    $normalCase = TextCapitalizationFactory::create(TextCapitalizationOption::NORMALCASE, $input);
     $csvFile = new FileCreationCSV("csv_file.csv", $normalCase);
     $print = new PrintFile($csvFile);
     $print->setSuccessMessage("CSV created!");
