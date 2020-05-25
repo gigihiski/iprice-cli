@@ -52,7 +52,7 @@ abstract class FileCreation implements FileCreationInterface
     private function textCapitalizationValidation(TextCapitalizationInterface $textCapitalization)
     {
         if (is_null($textCapitalization) || empty($textCapitalization)) {
-            throw new FileCreationException(FileCreationError::EMPTY_FILEPATH);
+            throw new FileCreationException(FileCreationError::TEXT_STYLE_NOT_SET);
         }
     }
 
